@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <title>Ķīmijas laboratorijas uzskaites formas</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    .form-container { display: none; }
+    .active { display: block; }
+    button { margin: 10px 5px; }
+  </style>
+</head>
+<body>
+  <h1>Ķīmijas laboratorijas formas</h1>
+
+  <div id="form1" class="form-container active">
+    <h2>1. Forma</h2>
+    <label>Eksperimenta nosaukums: <input type="text"></label><br>
+    <label>Datums: <input type="date"></label><br>
+    <label>Laborants: <input type="text"></label><br>
+    <button onclick="switchForm('form2')">Uz 2. formu</button>
+    <button onclick="switchForm('form3')">Uz 3. formu</button>
+  </div>
+
+  <div id="form2" class="form-container">
+    <h2>2. Forma</h2>
+    <label>Reaģenti:<br><textarea rows="4" cols="30"></textarea></label><br>
+    <label>Temperatūra: <input type="number" step="0.1"> &deg;C</label><br>
+    <label>Spiediens: <input type="number" step="0.1"> atm</label><br>
+    <button onclick="switchForm('form1')">Uz 1. formu</button>
+    <button onclick="switchForm('form3')">Uz 3. formu</button>
+  </div>
+
+  <div id="form3" class="form-container">
+    <h2>3. Forma</h2>
+    <label>Novērojumi:<br><textarea rows="4" cols="30"></textarea></label><br>
+    <label>Secinājumi:<br><textarea rows="4" cols="30"></textarea></label><br>
+    <button onclick="switchForm('form1')">Uz 1. formu</button>
+    <button onclick="switchForm('form2')">Uz 2. formu</button>
+  </div>
+
+  <script>
+    function switchForm(formId) {
+      const forms = document.querySelectorAll('.form-container');
+      forms.forEach(f => f.classList.remove('active'));
+      document.getElementById(formId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
